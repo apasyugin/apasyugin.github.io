@@ -1,15 +1,14 @@
 import './AboutPage.css';
 import ProfileImage from '../img/profile.png'
 import React from "react";
+import {withTranslation} from 'react-i18next'
 
-class AboutPage extends React.Component {
-    render() {
-        return <div>
-            <img src={ProfileImage} />
-            <h5>Привет, меня зовут Артем!</h5>
-            <a>Тут я расскажу про учебу и мою историю карьеры от разработчика приложений на андроид до банковских сервисов на java</a>
-        </div>;
-    }
+const AboutPage = ({t}) => {
+    return (<div className={"Page"}>
+        <img src={ProfileImage} className={"Main-image"}/>
+        <h5>{t('about.title')}</h5>
+        <a>{t('about.content')}</a>
+    </div>);
 }
 
-export default AboutPage;
+export default withTranslation()(AboutPage)
